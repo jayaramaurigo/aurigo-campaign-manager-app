@@ -12,12 +12,12 @@ import ListItemText from '@mui/material/ListItemText';
 import Badge from '@mui/material/Badge';
 import ListSubheader from '@mui/material/ListSubheader';
 
+
 const drawerWidth = 200;
 
 export default function NavBar() {
   return (
-    <Box sx={{ display: 'flex',
-     }}>
+    <>
       <CssBaseline />
     
       <Drawer
@@ -27,6 +27,10 @@ export default function NavBar() {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box-small',
+            overflowY: 'hidden',
+            overflowX: 'hidden',
+            background: 'grey',
+
           },
         
         }}
@@ -39,23 +43,23 @@ export default function NavBar() {
         <List
         subheader={
             <ListSubheader component="div" id="nested-list-subheader">
-            <span style={{ fontSize: "0.95rem", background: '#CCDEF4',
-          backgroundColor: "#0431B4"}}>Over View</span>
+            <span style={{ fontSize: "0.95rem", }}>Over View</span>
             </ListSubheader>}>
           {['To-do Lists', 'Resources', 'Discussions'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemText  ><span style={{ fontSize: "0.75rem" }}>{text}</span></ListItemText>
-                
-            <Badge
-             badgeContent={index}
+            <ListItem >
+              <ListItemButton style={{ padding: 0, paddingRight: '2px'}} >
+                <ListItemText  ><span style={{ fontSize: "0.65rem" }}>{text}</span></ListItemText>
+                <Badge
+             badgeContent={index+1}
+             style={{ backgroundColor: '#fff' }} 
             anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
             }}
+          
             />
-
               </ListItemButton>
+        
             </ListItem>
           ))}
         </List>
@@ -66,17 +70,19 @@ export default function NavBar() {
            <span style={{ fontSize: "0.95rem" }}>Activites</span>
             </ListSubheader>}>
           {[ 'Email Campaings', 'Social Posts', 'Surveys', 'Events', 'Webinars', 'SMS Campaings', 'Blogs', 'Video'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-              <ListItemText  ><span style={{ fontSize: "0.75rem" }}>{text}</span></ListItemText>
-                <Badge
-             badgeContent={index}
+            <ListItem >
+              <ListItemButton style={{ padding: 0, paddingRight: '2px', width: '150px'}}>
+              <ListItemText  ><span style={{ fontSize: "0.65rem" }}>{text}</span></ListItemText>
+           
+              </ListItemButton>
+              <Badge
+             badgeContent={index+1}
             anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
+            
             }}
             />
-              </ListItemButton>
             </ListItem>
           ))}
         </List>
@@ -90,6 +96,6 @@ export default function NavBar() {
     
  
       </Box>
-    </Box>
+    </>
   );
 }
