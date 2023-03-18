@@ -1,101 +1,70 @@
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import Badge from '@mui/material/Badge';
-import ListSubheader from '@mui/material/ListSubheader';
-
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import { Chip } from '@mui/material';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
+// import MailIcon from '@mui/icons-material/Mail';
 
 const drawerWidth = 200;
 
-export default function NavBar() {
+export default function PermanentDrawerLeft() {
   return (
-    <>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-    
       <Drawer
         sx={{
           width: drawerWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
             width: drawerWidth,
-            boxSizing: 'border-box-small',
-            overflowY: 'hidden',
-            overflowX: 'hidden',
-            background: 'grey',
-
+            boxSizing: 'border-box',
           },
-        
         }}
-        
         variant="permanent"
         anchor="left"
       >
-      
-
-        <List
-        subheader={
-            <ListSubheader component="div" id="nested-list-subheader">
-            <span style={{ fontSize: "0.95rem", }}>Over View</span>
-            </ListSubheader>}>
-          {['To-do Lists', 'Resources', 'Discussions'].map((text, index) => (
-            <ListItem >
-              <ListItemButton style={{ padding: 0, paddingRight: '2px'}} >
-                <ListItemText  ><span style={{ fontSize: "0.65rem" }}>{text}</span></ListItemText>
-                <Badge
-             badgeContent={index+1}
-             style={{ backgroundColor: '#fff' }} 
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-          
-            />
-              </ListItemButton>
-        
+        <List dense>
+            <ListItem>
+                <ListItemText primaryTypographyProps={{color:'#4EBCF6', fontSize:'15px', fontWeight:500}} primary="Overview" />
             </ListItem>
-          ))}
+            {['To-Do List', 'Resources', 'Discussions'].map((text, index) => (
+                <ListItem key={text} disablePadding>
+                <ListItemButton>
+                    <ListItemText primaryTypographyProps={{fontSize: '14px'}} primary={text}/>
+                </ListItemButton>
+                </ListItem>
+            ))}
         </List>
-        <Divider />
-        <List
-          subheader={
-            <ListSubheader component="div" id="nested-list-subheader">
-           <span style={{ fontSize: "0.95rem" }}>Activites</span>
-            </ListSubheader>}>
-          {[ 'Email Campaings', 'Social Posts', 'Surveys', 'Events', 'Webinars', 'SMS Campaings', 'Blogs', 'Video'].map((text, index) => (
-            <ListItem >
-              <ListItemButton style={{ padding: 0, paddingRight: '2px', width: '150px'}}>
-              <ListItemText  ><span style={{ fontSize: "0.65rem" }}>{text}</span></ListItemText>
-           
-              </ListItemButton>
-              <Badge
-             badgeContent={index+1}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            
-            }}
-            />
+        <List dense>
+            <ListItem disablePadding>
+                <ListItemButton>
+                    <ListItemText primaryTypographyProps={{fontSize: '15px', fontWeight:600}} primary="Activities" />
+                    <ListItemIcon sx={{justifyContent:'flex-end'}}>
+                        <AddCircleOutlineIcon fontSize='inherit'/>
+                    </ListItemIcon>
+                </ListItemButton>
             </ListItem>
-          ))}
+            {['Email Campaign', 'Social Posts', 'Surveys', 'Events', 'Webinars', 'SMS Campaigns', 'Blogs', 'Video'].map((text, index)=> 
+            (
+                <ListItem key={text} disablePadding>
+                <ListItemButton>
+                    <ListItemText primaryTypographyProps={{fontSize: '14px'}} primary={text} />
+                </ListItemButton>
+                </ListItem>
+            ))}
         </List>
       </Drawer>
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-      >
-       
-      
-    
- 
-      </Box>
-    </>
+    </Box>
   );
 }
