@@ -19,23 +19,18 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import { wrap } from "module";
 const drawerWidth = 200;
 
 
 
-// Item styling
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  // padding: '0.2rem'theme.spacing(0.1),
-  padding: '0.2rem',
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  size: '0.5rem',
-}));
+
 export default function CampaignBanner(){
    return   (<><AppBar
-   position="sticky"
+   position="fixed"
    sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, bgcolor: 'white'}}
  >
     <Toolbar disableGutters={true}>
@@ -56,13 +51,14 @@ export default function CampaignBanner(){
           borderRadius: 1,
         }}
       >
-    <Typography style={{ padding: '0.25em', color:'black',fontSize: '0.75rem', }}>
-        Launch 'Chart your Course'-Personalized travel pacakges
+    <Typography style={{ padding: '0.25em', color:'black',fontSize: '14px', }}>
+       <b> Launch 'Chart your Course'-Personalized travel pacakges</b>
     </Typography>
-    <Stack direction="row" spacing={2}>
-  <Item>Announcement</Item>
-  <Item>Digital Marketing</Item>
-   <Item> Location <LocationOnIcon fontSize="small"/> </Item>
+    <Stack direction="row" spacing={0.5}>
+      
+        <CardContent  style={{ border: "1px solid grey",borderRadius: '5px', padding: 2,color:'black', backgroundColor:'#D0DEEE', fontSize: '12px' }}>Announcement</CardContent>
+        <CardContent  style={{ border: "1px solid grey",borderRadius: '5px', padding: 2,color:'black', backgroundColor:'#D0DEEE', fontSize: '12px' }}>Digital Marketing</CardContent>
+        <CardContent  style={{ border: "1px solid grey",borderRadius: '5px', padding: 2,color:'black', backgroundColor:'#D0DEEE', fontSize: '12px' }}> Location <LocationOnIcon sx={{height:'12px'}}/></CardContent>
    
     
 </Stack>
@@ -76,26 +72,27 @@ export default function CampaignBanner(){
           alignItems: 'center',
           flexDirection: 'row',
           p: 0.2,
+          paddingBottom: 0,
           m: 0.5,
           bgcolor: 'background.paper',
           borderRadius: 1,
         }}
       >
     <Avatar
-  alt="Remy Sharp"
+  alt="Aemy Sharp"
   src="/static/images/avatar/1.jpg"
   sx={{ height: "40px", width: "40px", margin: "auto", padding: "0" }}
 />
 
 <Stack direction="column" spacing={0.5}>
- <Typography style={{ padding: '0.2em', color:'black',fontSize: '0.5rem', }}><b>Amelia Burrows</b></Typography>
- <Typography style={{ padding: '0.2em', color:'black',fontSize: '0.5rem', }}>burrows@gmail.com</Typography>
+ <Typography  style={{ padding: '0.2em', color:'black',fontSize: '12px', }}><b>Amelia Burrows</b></Typography>
+ <Typography style={{ padding: '0.2em', color:'black',fontSize: '10px', }}>burrows@gmail.com</Typography>
     
 </Stack>
 </Box>
   </Grid>
   <Divider orientation="vertical" flexItem />
-  <Grid item xs={2} md={2}>
+  <Grid item xs={2} md={2.95}>
  
       <Button
          fullWidth={true}
