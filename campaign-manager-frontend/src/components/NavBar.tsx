@@ -12,6 +12,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import Badge from '@mui/material/Badge';
 import { Chip } from '@mui/material';
 // import InboxIcon from '@mui/icons-material/MoveToInbox';
 // import MailIcon from '@mui/icons-material/Mail';
@@ -20,8 +21,7 @@ const drawerWidth = 200;
 
 export default function PermanentDrawerLeft() {
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
+    <Box  component="nav">
       <Drawer
         sx={{
           width: drawerWidth,
@@ -41,7 +41,9 @@ export default function PermanentDrawerLeft() {
             {['To-Do List', 'Resources', 'Discussions'].map((text, index) => (
                 <ListItem key={text} disablePadding>
                 <ListItemButton>
+                
                     <ListItemText primaryTypographyProps={{fontSize: '14px'}} primary={text}/>
+                    <Badge badgeContent={index+1} color="secondary"/>
                 </ListItemButton>
                 </ListItem>
             ))}
@@ -60,7 +62,9 @@ export default function PermanentDrawerLeft() {
                 <ListItem key={text} disablePadding>
                 <ListItemButton>
                     <ListItemText primaryTypographyProps={{fontSize: '14px'}} primary={text} />
+                    <Badge badgeContent={index+1} color="secondary"/>
                 </ListItemButton>
+                
                 </ListItem>
             ))}
         </List>
