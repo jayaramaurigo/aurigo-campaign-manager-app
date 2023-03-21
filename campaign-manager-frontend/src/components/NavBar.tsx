@@ -21,7 +21,7 @@ const drawerWidth = 200;
 
 export default function PermanentDrawerLeft() {
   return (
-    <Box  component="nav">
+   <>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -69,6 +69,6 @@ export default function PermanentDrawerLeft() {
             ))}
         </List>
       </Drawer>
-    </Box>
+    </>
   );
 }

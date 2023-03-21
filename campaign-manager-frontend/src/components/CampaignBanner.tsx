@@ -30,7 +30,8 @@ const drawerWidth = 200;
 
 export default function CampaignBanner(){
    return   (<><AppBar
-   position="fixed"
+
+    position="fixed"
    sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px`, bgcolor: 'white'}}
  >
     <Toolbar disableGutters={true}>

@@ -21,20 +21,36 @@ export default function Homepage(){
       }}>
         
 
-   
-        <CampaignBanner/>
         <CssBaseline />
+        <CampaignBanner/>
+        
         <NavBar/>
- 
-    <Grid container spacing={2}>
-    <Grid item xs={2} md={6}> 
+        <Box
+         
+        >
+          <Toolbar />
+          
+          <Grid container  spacing={2}>
+          <Grid item xs={6}>
+            <Grid item xs={12} height={'100%'}>
+            <Activities/>
+            </Grid>
+            </Grid>
+            <Grid item md={6}>
+    <Grid item  xs={2} md={12}> 
     <Activities/>
       </Grid>
-      <Grid item xs={2} md={6}>
+      <br></br>
+      <Grid item xs={2} md={12}>
       <PendingTasks/>
+     </Grid>
      </Grid>
     </Grid>
        
+ {/* <Activities></Activities>
+ <PendingTasks/> */}
+ </Box>
+    
     </Box>
 
     </>
