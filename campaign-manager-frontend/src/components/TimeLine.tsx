@@ -6,93 +6,161 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import LaptopMacIcon from '@mui/icons-material/LaptopMac';
-import HotelIcon from '@mui/icons-material/Hotel';
-import RepeatIcon from '@mui/icons-material/Repeat';
+import CampaignIcon from '@mui/icons-material/Campaign';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
+import FlagIcon from '@mui/icons-material/Flag';
 import Typography from '@mui/material/Typography';
 import { timelineItemClasses } from '@mui/lab/TimelineItem';
+import { Card, CardContent, CardHeader, Chip, Icon, IconButton, Stack } from '@mui/material';
+import { borderColor, borderRadius } from '@mui/system';
 
 function createData(
+    type: string,
     title: string,
     isHead: boolean,
     subTitle: string, 
-    text: string,
-    icon: string,
+    pendTask: number,
+    createdBy: string,
+    publishedBy: string,
+    status: string,
+    // icon: string,
+    // channels: string
 ) {
-    return { title, isHead, subTitle, text, icon};
+    // return { type, title, isHead, subTitle, pendTask, createdBy, publishedBy, icon, channels, status};
+    return { type, title, isHead, subTitle, pendTask, createdBy, publishedBy, status};
 }
 
-export default function CustomizedTimeLine() {
-  return (
-    <Timeline 
-        sx={{
-            [`& .${timelineItemClasses.root}:before`]: {
-            flex: 0,
-            padding: 0,
-            },
-        }}
-    >
-        <TimelineItem>
-            <TimelineSeparator>
-                <TimelineConnector />
-                    <TimelineDot>
-                        <FastfoodIcon />
-                    </TimelineDot>
-                <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: '12px', px: 2 }}>
-                <Typography variant="h6" component="span">
-                    Eat
-                </Typography>
-                <Typography>Because you need strength</Typography>
-            </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-            <TimelineSeparator>
-                <TimelineConnector />
-                    <TimelineDot color="primary">
-                        <LaptopMacIcon />
-                    </TimelineDot>
-                <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: '12px', px: 2 }}>
-                <Typography variant="h6" component="span">
-                    Code
-                </Typography>
-                <Typography>Because it&apos;s awesome!</Typography>
-            </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-            <TimelineSeparator>
-                <TimelineConnector />
-                    <TimelineDot color="primary" variant="outlined">
-                        <HotelIcon />
-                    </TimelineDot>
-            <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: '12px', px: 2 }}>
-                <Typography variant="h6" component="span">
-                    Sleep
-                </Typography>
-                <Typography>Because you need rest</Typography>
-            </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-            <TimelineSeparator>
-                <TimelineConnector sx={{ bgcolor: 'secondary.main' }} />
-                    <TimelineDot color="secondary">
-                        <RepeatIcon />
-                    </TimelineDot>
-                <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: '12px', px: 2 }}>
-                <Typography variant="h6" component="span">
-                    Repeat
-                </Typography>
-                <Typography>Because this is the life you love!</Typography>
-            </TimelineContent>
-        </TimelineItem>
-    </Timeline>
-  );
+const cardInfo=[
+    createData("", "Launch 'Chart Your Course'-Personalized travel packages has started", true, "", 0, "", "", ""),
+    createData("EMAIL CAMPAIGN", "Zylker Travels App Launch", false, "subTitle", 2, "Amelia Burrows", "Amelia Burrows", "SENT"),
+    createData("SOCIAL POST", "Not able to ...", false, "subTitle", 2, "Amelia Burrows", "Amelia Burrows", "PUBLISHED"),
+    createData("SOCIAL POST", "Book your trip now...", false, "subTitle", 2, "Amelia Burrows", "Amelia Burrows", "PUBLISHED"),
+    createData("SOCIAL POST", "Why choose Zylker Travels?", false, "subTitle", 2, "Amelia Burrows", "Amelia Burrows", "PUBLISHED"),
+]
+
+const iconList=[
+
+]
+
+export default function TimeLine() {
+    return(
+        <Timeline 
+            sx={{
+                [`& .${timelineItemClasses.root}:before`]: {
+                flex: 0,
+                padding: 0,
+                },
+            }}
+        >
+            {cardInfo.map((card)=>(
+                <TimelineItem>
+                    <TimelineSeparator>
+                        <TimelineConnector sx={{backgroundColor:'black'}}/>
+                            <TimelineDot sx={{backgroundColor:'white', outlineColor:'black'}}>
+                                <CampaignIcon fontSize='small' sx={{color:'orange'}}/>
+                            </TimelineDot>
+                        <TimelineConnector sx={{backgroundColor:'black'}}/>
+                    </TimelineSeparator>
+                    <TimelineContent>
+                        {card.isHead?(
+                            <Card sx={{ minWidth: 200, borderLeft: 2, borderRadius:'0px', borderLeftColor:'orange'}} style={{backgroundColor:'#fdf7ed'}}>
+                                <CardContent>
+                                    <Typography sx={{fontSize: '1.1rem'}} component='div'>
+                                        <strong>{card.title}</strong>        
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        )
+                        :
+                        (
+                            <Card sx={{ minWidth: 200 }}>
+                                <CardContent>
+                                    <Typography sx={{ fontSize: '0.8rem', color:'grey', mb:0.7}}>
+                                    <Stack
+                                        direction="row"
+                                        justifyContent="space-between"
+                                        alignItems="center"
+                                        spacing={6}
+                                    >
+                                        <span>{card.type}</span>
+                                        <Chip label={card.status} variant="outlined" sx={{borderRadius:1.5, color:'#32de84', borderColor:'grey'}}/>
+                                    </Stack>
+                                    </Typography>
+                                    <Typography sx={{ mb: 0.7, fontSize: '1.1rem'}} component='div'>
+                                        <strong>{card.title}</strong>        
+                                    </Typography>
+                                    <Stack
+                                        direction="row"
+                                        justifyContent="flex-start"
+                                        alignItems="center"
+                                        spacing={6}
+                                    >
+                                        <Typography 
+                                            variant="body2" 
+                                            color="text.secondary" 
+                                            component='div' 
+                                            style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            flexWrap: 'wrap',
+                                            }}
+                                        > 
+                                            <DescriptionOutlinedIcon fontSize='small'/>
+                                            <span>Pending Tasks: {card.pendTask}</span>      
+                                        </Typography>
+                                        <Typography 
+                                            variant="body2" 
+                                            color="text.secondary" 
+                                            component='div' 
+                                            style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            flexWrap: 'wrap',
+                                            }}
+                                        > 
+                                            <PersonOutlinedIcon fontSize='small'/>
+                                            <span>Created By: {card.createdBy}</span>      
+                                        </Typography>
+                                        <Typography 
+                                            variant="body2" 
+                                            color="text.secondary" 
+                                            component='div' 
+                                            style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            flexWrap: 'wrap',
+                                            }}
+                                        > 
+                                            <PersonOutlinedIcon fontSize='small'/>
+                                            <span>Published By: {card.publishedBy}</span>      
+                                        </Typography>
+                                        <Typography 
+                                            variant="body2" 
+                                            color="text.secondary" 
+                                            component='div' 
+                                            style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            flexWrap: 'wrap',
+                                            }}
+                                        > 
+                                            <ShareOutlinedIcon fontSize='small'/><span>Channels: {/*{card.channels}*/}</span>
+                                            <IconButton><FacebookRoundedIcon fontSize='small' sx={{color:'#425894'}}/></IconButton>
+                                            <IconButton><InstagramIcon fontSize='small' sx={{color:'#d75176'}}/></IconButton>
+                                            <IconButton><TwitterIcon fontSize='small' sx={{color:'#4da9e7'}}/></IconButton>    
+                                        </Typography>
+                                    </Stack>
+                                </CardContent>
+                            </Card>
+                        )}
+                    </TimelineContent>
+                </TimelineItem>
+            ))}
+        </Timeline>
+    )
 }

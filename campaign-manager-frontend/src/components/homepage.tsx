@@ -9,7 +9,6 @@ import Grid from '@mui/material/Grid';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import TimeLine from "./TimeLine";
-import BasicCard from "./EventCardTemplate";
 export default function Homepage(){
   return(
     // <Box  sx={{
@@ -46,5 +45,5 @@ export default function Homepage(){
     //     </Grid>
     //   </Box>
     // </Box>
-    <BasicCard/>
+    <TimeLine/>
 )};
