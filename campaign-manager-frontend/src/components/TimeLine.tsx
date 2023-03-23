@@ -88,7 +88,7 @@ export default function TimeLine() {
                                         spacing={6}
                                     >
                                         <span>{card.type}</span>
-                                        <Chip label={card.status} variant="outlined" sx={{borderRadius:1.5, color:'#32de84', borderColor:'grey'}}/>
+                                        <Chip label={card.status} variant="outlined" size='small' sx={{borderRadius:1.5, color:'#32de84', borderColor:'grey'}}/>
                                     </Stack>
                                     </Typography>
                                     <Typography sx={{ mb: 0.7, fontSize: '1.1rem'}} component='div'>
