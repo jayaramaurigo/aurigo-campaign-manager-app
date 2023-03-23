@@ -1,9 +1,3 @@
-// import React from "react";
-
-// export default function TimeLine(){
-//     return <>TimeLine</>;
-// };
-
 import * as React from 'react';
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -18,6 +12,16 @@ import HotelIcon from '@mui/icons-material/Hotel';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import Typography from '@mui/material/Typography';
 import { timelineItemClasses } from '@mui/lab/TimelineItem';
+
+function createData(
+    title: string,
+    isHead: boolean,
+    subTitle: string, 
+    text: string,
+    icon: string,
+) {
+    return { title, isHead, subTitle, text, icon};
+}
 
 export default function CustomizedTimeLine() {
   return (
