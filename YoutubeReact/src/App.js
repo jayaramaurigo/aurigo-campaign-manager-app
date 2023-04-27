@@ -6,11 +6,11 @@ function App() {
     const login = useGoogleLogin({
         onSuccess: tokenResponse =>{
             console.log(tokenResponse.access_token)
-            const hasAccess = hasGrantedAllScopesGoogle(
-            tokenResponse,
-            'https://www.googleapis.com/auth/youtube',
-            )
-            console.log(hasAccess);
+            //const hasAccess = hasGrantedAllScopesGoogle(
+            // tokenResponse,
+            // 'https://www.googleapis.com/auth/youtube',
+            // )
+            // console.log(hasAccess);
         },
         scope: 'https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl'
     });

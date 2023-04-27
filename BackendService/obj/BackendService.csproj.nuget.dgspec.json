@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\v-jayaram\\Desktop\\Aurigo\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj": {}
+    "C:\\Users\\v-vishwas.baya\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\v-jayaram\\Desktop\\Aurigo\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj": {
+    "C:\\Users\\v-vishwas.baya\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\v-jayaram\\Desktop\\Aurigo\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj",
+        "projectUniqueName": "C:\\Users\\v-vishwas.baya\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj",
         "projectName": "BackendService",
-        "projectPath": "C:\\Users\\v-jayaram\\Desktop\\Aurigo\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj",
-        "packagesPath": "C:\\Users\\v-jayaram\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\v-jayaram\\Desktop\\Aurigo\\aurigo-campaign-manager-app\\BackendService\\obj\\",
+        "projectPath": "C:\\Users\\v-vishwas.baya\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj",
+        "packagesPath": "C:\\Users\\v-vishwas.baya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\v-vishwas.baya\\aurigo-campaign-manager-app\\BackendService\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\v-jayaram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\v-vishwas.baya\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,7 +46,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
