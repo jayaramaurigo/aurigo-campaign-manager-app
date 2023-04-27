@@ -16,24 +16,46 @@ export default function CreateComment({userContext})
     const [message,setMessage]=useState('');
     const [postID,setPostId]=useState(user.postID);
     
+    const [likes, setLikes] = useState(0);
+    const [isClicked, setIsClicked] = useState(false);
 
+
+    
+    
+      const handleClick = async() => {
+        if (isClicked) {
+          // setLikes(likes - 1);
+          alert("cant unlike a post sryy");
+        } else {
+          const requestOptions = {
+            method: 'post',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/json' },
+       
+           
+        };
+        const response = await fetch(`https://graph.facebook.com/${postID}/likes/?access_token=${fbPageAccess}`, requestOptions)//.then((response) => { // wait for Promise to be done
+        const data = await response.json();
+        console.log(data);
+        }
+       // setIsClicked(!isClicked);
+      };
+    
+    
+    
 
 // Event handler to publish the post
 const onhandleSubmit = async () => 
 {
+  
     const requestOptions = {
         method: 'post',
         mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
    
-        body: JSON.stringify({
-         
-          message: message,
-          accessToken: fbPageAccess,
-          
-        })
+       
     };
-    const response = await fetch(`https://graph.facebook.com/${pageID}/comments/`, requestOptions)//.then((response) => { // wait for Promise to be done
+    const response = await fetch(`https://graph.facebook.com/${postID}/comments/?access_token=${fbPageAccess}&message=${message}`, requestOptions)//.then((response) => { // wait for Promise to be done
     const data = await response.json();
     
         console.log(data);
@@ -93,9 +115,11 @@ return (
        
        <br></br>
        
-       <button type="button" align="center" onClick={onhandleSubmit()}>Post</button>
+       <button type="button" align="center" onClick={onhandleSubmit}>Post</button>
      </fieldset>
-   
+     {/* <button className={ `like-button ${isClicked && 'liked'}` } onClick={ handleClick }>
+          <span className="likes-counter">{ `Like | ${likes}` }</span>
+        </button> */}
     </form>
  </div>
   );
