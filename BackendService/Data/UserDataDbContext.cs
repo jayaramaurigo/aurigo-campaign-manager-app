@@ -1,4 +1,4 @@
-﻿using BackendService.Models;
+﻿using BackendService.Models.FacebookModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackendService.Data

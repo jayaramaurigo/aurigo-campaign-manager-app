@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using System;
-using BackendService.Models;
+using BackendService.Models.FacebookModels;
 
 namespace BackendService.Controllers
 {
@@ -52,12 +52,12 @@ namespace BackendService.Controllers
             {
                 httpClient.BaseAddress = new Uri("https://graph.facebook.com/");
 
-                var parametters = new Dictionary<string, string>
-            {
-                { "access_token", facebookPost.AccessToken },
-                { "message", facebookPost.Message }
-            };
-                var encodedContent = new FormUrlEncodedContent(parametters);
+                var parameters = new Dictionary<string, string>
+                {
+                    { "access_token", facebookPost.AccessToken },
+                    { "message", facebookPost.Message }
+                };
+                var encodedContent = new FormUrlEncodedContent(parameters);
 
                 var result = await httpClient.PostAsync($"{facebookPost.PageId}/feed", encodedContent);
                 var msg = result.EnsureSuccessStatusCode();
@@ -79,7 +79,7 @@ namespace BackendService.Controllers
             
                 var parametters = new Dictionary<string, string>
             {
-                {"url", facebookPost.ImageUrl },
+                { "url", facebookPost.ImageUrl },
                 { "access_token", facebookPost.AccessToken },
                 { "message", facebookPost.Message }
             };
