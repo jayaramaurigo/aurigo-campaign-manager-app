@@ -116,3 +116,9 @@ C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\obj\Debug\net
 C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\obj\Debug\net6.0\BackendService.pdb
 C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\obj\Debug\net6.0\BackendService.genruntimeconfig.cache
 C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\obj\Debug\net6.0\ref\BackendService.dll
+C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\bin\Debug\net6.0\Google.Apis.dll
+C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\bin\Debug\net6.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\bin\Debug\net6.0\Google.Apis.Auth.dll
+C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\bin\Debug\net6.0\Google.Apis.Core.dll
+C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\bin\Debug\net6.0\Google.Apis.YouTube.v3.dll
+C:\Users\v-vishwas.baya\aurigo-campaign-manager-app\BackendService\bin\Debug\net6.0\Newtonsoft.Json.dll

@@ -9,6 +9,19 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
+using System;
+using System.IO;
+using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
+
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Services;
+using Google.Apis.Upload;
+using Google.Apis.Util.Store;
+using Google.Apis.YouTube.v3;
+using Google.Apis.YouTube.v3.Data;
+
 namespace BackendService.Controllers
 {
     [Route("api/[controller]")]
@@ -84,6 +97,72 @@ namespace BackendService.Controllers
                     return Ok(result);
                 }
                 else return BadRequest();
+            }
+        }
+
+        //uploads video but works on the premise of a desktop app and not a web application
+        [HttpPost]
+        [Route("Video")]
+        [STAThread]
+        public async Task UploadVideo([FromBody] UploadContext uploadContext)
+        {
+            UserCredential credential;
+        
+            credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                new ClientSecrets
+                {
+                    ClientId = uploadContext.ClientId,
+                    ClientSecret = uploadContext.ClientSecret
+                },
+                new[] { YouTubeService.Scope.YoutubeUpload },
+                "user",
+                CancellationToken.None
+            );
+            
+
+            var youtubeService = new YouTubeService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = Assembly.GetExecutingAssembly().GetName().Name
+            });
+
+            var video = new Video();
+            video.Snippet = new Google.Apis.YouTube.v3.Data.VideoSnippet();
+            video.Snippet.Title = uploadContext.videoTitle;
+            video.Snippet.Description = uploadContext.videoDescription;
+            video.Snippet.Tags = uploadContext.videoTags;
+            video.Snippet.CategoryId = uploadContext.videoCategoryId;
+            video.Status = new VideoStatus();
+            video.Status.PrivacyStatus = uploadContext.videoPrivacyStatus;
+            var filePath = $@"{uploadContext.filePath}";
+
+            using (var fileStream = new FileStream(filePath, FileMode.Open))
+            {
+            
+                var videosInsertRequest = youtubeService.Videos.Insert(video, "snippet,status", fileStream, "video/*");
+                videosInsertRequest.ProgressChanged += videosInsertRequest_ProgressChanged;
+                videosInsertRequest.ResponseReceived += videosInsertRequest_ResponseReceived;
+
+                await videosInsertRequest.UploadAsync();
+            }
+
+            void videosInsertRequest_ProgressChanged(IUploadProgress progress)
+            {
+                switch (progress.Status)
+                {
+                    case UploadStatus.Uploading:
+                        Debug.WriteLine("{0} bytes sent.", progress.BytesSent);
+                        break;
+
+                    case UploadStatus.Failed:
+                        Debug.WriteLine("An error prevented the upload from completing.\n{0}", progress.Exception);
+                        break;
+                }
+            }
+
+            void videosInsertRequest_ResponseReceived(Video video)
+            {
+                Debug.WriteLine("Video id '{0}' was successfully uploaded.", video.Id);
             }
         }
 
@@ -242,3 +321,4 @@ namespace BackendService.Controllers
 
     }
 }
+
