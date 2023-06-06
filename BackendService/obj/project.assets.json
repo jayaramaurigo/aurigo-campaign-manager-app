@@ -1226,19 +1226,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\v-vishwas.baya\\.nuget\\packages\\": {}
+    "C:\\Users\\v-azhaan.shaik\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\v-vishwas.baya\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj",
+      "projectUniqueName": "C:\\Users\\v-azhaan.shaik\\Source\\Repos\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj",
       "projectName": "BackendService",
-      "projectPath": "C:\\Users\\v-vishwas.baya\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj",
-      "packagesPath": "C:\\Users\\v-vishwas.baya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\v-vishwas.baya\\aurigo-campaign-manager-app\\BackendService\\obj\\",
+      "projectPath": "C:\\Users\\v-azhaan.shaik\\Source\\Repos\\aurigo-campaign-manager-app\\BackendService\\BackendService.csproj",
+      "packagesPath": "C:\\Users\\v-azhaan.shaik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\v-azhaan.shaik\\Source\\Repos\\aurigo-campaign-manager-app\\BackendService\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\v-vishwas.baya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\v-azhaan.shaik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
